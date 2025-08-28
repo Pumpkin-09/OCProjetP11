@@ -58,6 +58,10 @@ def purchasePlaces():
         flash("Maximum 12 places par club")
         return render_template('welcome.html', club=club, competitions=competitions)
     
+    elif int(competition['numberOfPlaces']) < placesRequired:
+        flash("Pas assez de place disponible")
+        return render_template('welcome.html', club=club, competitions=competitions)
+    
     elif datetime.strptime(competition["date"], "%Y-%m-%d %H:%M:%S") <= datetime.now():
         flash("Cette compétition est terminée")
         return render_template('welcome.html', club=club, competitions=competitions)
@@ -79,3 +83,7 @@ def purchasePlaces():
 @app.route('/logout')
 def logout():
     return redirect(url_for('index'))
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
