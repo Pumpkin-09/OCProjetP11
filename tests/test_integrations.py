@@ -1,15 +1,15 @@
-from Python_Testing import server
+from server import loadClubs, loadCompetitions
 
 
 def test_loadClubs():
-    data = server.loadClubs()
+    data = loadClubs()
 
     assert len(data) > 0
     assert isinstance(data, list)
 
 
 def test_loadCompetitions():
-    data = server.loadCompetitions()
+    data = loadCompetitions()
 
     assert len(data) > 0
     assert isinstance(data, list)
