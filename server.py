@@ -27,6 +27,11 @@ def index():
     return render_template('index.html')
 
 
+@app.route("/clubs-list")
+def clubs_list():
+    return render_template("clubs-list.html", clubs=clubs)
+
+
 @app.route('/showSummary', methods=['POST'])
 def showSummary():
     try:
